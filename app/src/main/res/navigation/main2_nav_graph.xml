@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/retro_photo_nav_graph.xml"
+    app:startDestination="@id/Main2Fragment">
+
+    <fragment
+        android:id="@+id/Main2Fragment"
+        android:name="com.carvana.coroutinesandflows.activity2.ui.Main2Fragment"
+        android:label="@string/main2Fragment_label"
+        tools:layout="@layout/fragment_retro_photo">
+
+        <action
+            android:id="@+id/action_main2_fragment2"
+            app:destination="@id/Main2Fragment2"/>
+
+        <action
+            android:id="@+id/action_retroPhotoActivity2"
+            app:destination="@id/action_retroPhotoActivity2"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/Main2Fragment2"
+        android:name="com.carvana.coroutinesandflows.activity2.ui.Main2Fragment2"
+        android:label="@string/main2Fragment_label"
+        tools:layout="@layout/fragment_retro_photo">
+
+        <action
+            android:id="@+id/action_retroPhotoActivity2"
+            app:destination="@id/action_retroPhotoActivity2"/>
+    </fragment>
+
+    <activity
+        android:id="@+id/action_retroPhotoActivity2"
+        android:name="com.carvana.coroutinesandflows.retroPhoto.ui.RetroPhotoActivity"
+        android:label="@string/retro_photo_activity"
+        app:action="android.intent.action.VIEW"
+        app:data="https://example.com"
+        app:targetPackage="${applicationId}" />
+</navigation>

@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">CoroutinesAndFlows</string>
+    <string name="retroPhotoFragment_label">RetroPhotoFragment</string>
+    <string name="retroPhotoFragment2_label">RetroPhotoFragment2</string>
+    <string name="main2Fragment_label">Main2Fragment</string>
+    <string name="main2Fragment2_label">Main2Fragment2</string>
+
+    <string name="retro_photo_activity">Retro photo Activity</string>
+    <string name="main2_activity">MainActivity2</string>
+
+    <string name="next">Next</string>
+    <string name="back">Back</string>
+    <string name="next_activity">Next Activity</string>
+    <string name="retroPhotoActivity">retro Photo Activity</string>
+    <string name="back_to_previous_activity">Back to previous activity</string>
+    <string name="go_back_to_retro_photo_activity">Goto Retro photo Activity</string>
+</resources>

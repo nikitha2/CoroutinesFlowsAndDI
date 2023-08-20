@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/retro_photo_nav_graph.xml"
+    app:startDestination="@id/RetroPhotoFragment">
+
+    <fragment
+        android:id="@+id/RetroPhotoFragment"
+        android:name="com.carvana.coroutinesandflows.retroPhoto.ui.RetroPhotoFragment"
+        android:label="@string/retroPhotoFragment_label"
+        tools:layout="@layout/fragment_retro_photo" >
+
+        <action
+            android:id="@+id/action_clickNextBtn"
+            app:destination="@id/RetroPhotoFragment2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/RetroPhotoFragment2"
+        android:name="com.carvana.coroutinesandflows.retroPhoto.ui.RetroPhotoFragment2"
+        android:label="@string/retroPhotoFragment2_label"
+        tools:layout="@layout/fragment_retro_photo2">
+        <action
+            android:id="@+id/action_clickBackBtn"
+            app:destination="@id/RetroPhotoFragment" />
+
+        <action
+            android:id="@+id/action_nextActivityBtn"
+            app:destination="@id/action_mainActivity2" />
+    </fragment>
+
+    <activity
+        android:id="@+id/action_mainActivity2"
+        android:name="com.carvana.coroutinesandflows.activity2.ui.MainActivity2"
+        android:label="@string/main2_activity"
+        app:action="android.intent.action.VIEW"
+        app:data="https://example.com"
+        app:targetPackage="${applicationId}" />
+</navigation>

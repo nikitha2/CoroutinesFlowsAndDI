@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="vertical_padding">9dp</dimen>
+    <dimen name="text_size">16sp</dimen>
+    <dimen name="view_dimen">100dp</dimen>
+    <dimen name="toggle_margin">23dp</dimen>
+    <dimen name="view_margin">88dp</dimen>
+    <dimen name="vertical_spacing_status_bar">24dp</dimen>
+    <dimen name="page_margin_24">24dp</dimen>
+</resources>
