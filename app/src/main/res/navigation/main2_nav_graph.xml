@@ -8,9 +8,9 @@
 
     <fragment
         android:id="@+id/Main2Fragment"
-        android:name="com.carvana.coroutinesandflows.activity2.ui.Main2Fragment"
+        android:name="com.carvana.coroutinesandflows.retrofitWithCoroutinesAndFlows.ui.RetrofitWithCnFFragment1"
         android:label="@string/main2Fragment_label"
-        tools:layout="@layout/fragment_retro_photo">
+        tools:layout="@layout/retro_photo_fragment">
 
         <action
             android:id="@+id/action_main2_fragment2"
@@ -23,9 +23,9 @@
 
     <fragment
         android:id="@+id/Main2Fragment2"
-        android:name="com.carvana.coroutinesandflows.activity2.ui.Main2Fragment2"
+        android:name="com.carvana.coroutinesandflows.retrofitWithCoroutinesAndFlows.ui.RetrofitWithCnFFragment2"
         android:label="@string/main2Fragment_label"
-        tools:layout="@layout/fragment_retro_photo">
+        tools:layout="@layout/retro_photo_fragment">
 
         <action
             android:id="@+id/action_retroPhotoActivity2"

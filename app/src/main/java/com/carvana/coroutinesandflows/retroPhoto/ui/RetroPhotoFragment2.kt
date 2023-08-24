@@ -1,26 +1,18 @@
 package com.carvana.coroutinesandflows.retroPhoto.ui
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import com.carvana.coroutinesandflows.R
-import com.carvana.coroutinesandflows.activity2.ui.MainActivity2
-import com.carvana.coroutinesandflows.databinding.FragmentRetroPhoto2Binding
-import com.carvana.coroutinesandflows.databinding.FragmentRetroPhotoBinding
-import com.carvana.coroutinesandflows.retroPhoto.viewmodel.RetroPhotoViewModel
-import kotlinx.coroutines.launch
+import com.carvana.coroutinesandflows.databinding.RetroPhoto2FragmentBinding
 
 class RetroPhotoFragment2 : Fragment() {
     private val TAG = this::class.java.simpleName
-    private lateinit var binding: FragmentRetroPhoto2Binding
+    private lateinit var binding: RetroPhoto2FragmentBinding
     //private val retroPhotoViewModel: RetroPhotoViewModel by viewModels { RetroPhotoViewModel.Factory }
 
     override fun onCreateView(
@@ -28,7 +20,7 @@ class RetroPhotoFragment2 : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentRetroPhoto2Binding.inflate(inflater, container, false)
+        binding = RetroPhoto2FragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 

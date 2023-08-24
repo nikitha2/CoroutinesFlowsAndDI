@@ -1,4 +1,4 @@
-package com.carvana.coroutinesandflows.activity2.ui
+package com.carvana.coroutinesandflows.retrofitWithCoroutinesAndFlows.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -6,44 +6,48 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import com.carvana.coroutinesandflows.R
-import com.carvana.coroutinesandflows.databinding.FragmentMain2Binding
-import kotlinx.coroutines.cancel
+import com.carvana.coroutinesandflows.databinding.RetrofitWithCnfFragment1Binding
 
-class Main2Fragment2 : Fragment() {
+class RetrofitWithCnFFragment1 : Fragment() {
     private val TAG = this::class.java.simpleName
-    private lateinit var binding: FragmentMain2Binding
+    private lateinit var binding: RetrofitWithCnfFragment1Binding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentMain2Binding.inflate(inflater, container, false)
+        binding = RetrofitWithCnfFragment1Binding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.apply {
             setUp()
+            setupObservers()
         }
     }
 
+    private fun RetrofitWithCnfFragment1Binding.setupObservers() {
+
+    }
+
     private fun setUp() {
-        val navHostFragment = activity?.supportFragmentManager?.findFragmentById(R.id.activity2_nav_host_fragment) as NavHostFragment
+        val navHostFragment =
+            activity?.supportFragmentManager?.findFragmentById(R.id.activity2_nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
         binding.apply {
 
-            text.text = TAG
-            nextBtn.text =getString(R.string.go_back_to_retro_photo_activity)
-            nextBtn.setOnClickListener{
+            nextBtn.setOnClickListener {
+                navController.navigate(R.id.action_main2_fragment2)
+            }
+
+            BackBtn.setOnClickListener {
                 navController.navigate(R.id.action_retroPhotoActivity2)
                 activity?.finish()
             }
-
-            BackBtn.visibility = View.GONE
         }
 
     }
@@ -54,6 +58,6 @@ class Main2Fragment2 : Fragment() {
     }
 
     companion object {
-        fun newInstance() = Main2Fragment2()
+        fun newInstance() = RetrofitWithCnFFragment1()
     }
 }

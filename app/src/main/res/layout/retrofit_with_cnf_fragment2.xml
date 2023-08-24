@@ -7,13 +7,13 @@
     android:layout_height="match_parent"
     android:layout_marginHorizontal="@dimen/page_margin_24"
     android:layout_marginVertical="@dimen/page_margin_24"
-    tools:context=".retroPhoto.ui.RetroPhotoFragment">
+    tools:context=".retrofitWithCoroutinesAndFlows.ui.RetrofitWithCnFActivity">
 
     <TextView
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:text="@string/retroPhotoFragment_label"
+        android:text="@string/retrofit_with_cnf_fragment2_label"
         app:layout_constraintVertical_weight="1"
         app:layout_constraintBottom_toTopOf="@id/nextBtn"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,6 +28,16 @@
         android:layout_height="wrap_content"
         android:text="@string/next"
         app:layout_constraintTop_toBottomOf="@id/text"
+        app:layout_constraintBottom_toTopOf="@id/BackBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/BackBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/back_to_previous_activity"
+        app:layout_constraintTop_toBottomOf="@id/nextBtn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

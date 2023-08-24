@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="vertical_padding">9dp</dimen>
     <dimen name="text_size">16sp</dimen>
@@ -7,4 +7,5 @@
     <dimen name="view_margin">88dp</dimen>
     <dimen name="vertical_spacing_status_bar">24dp</dimen>
     <dimen name="page_margin_24">24dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

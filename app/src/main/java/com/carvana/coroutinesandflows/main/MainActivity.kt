@@ -1,17 +1,17 @@
-package com.carvana.coroutinesandflows.activity2.ui
+package com.carvana.coroutinesandflows.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.carvana.coroutinesandflows.databinding.ActivityMain2Binding
+import androidx.appcompat.app.AppCompatActivity
+import com.carvana.coroutinesandflows.databinding.MainActivityBinding
 
-class MainActivity2 : AppCompatActivity() {
-    private lateinit var binding: ActivityMain2Binding
+class MainActivity : AppCompatActivity() {
     private val TAG = this::class.java.simpleName
+    private lateinit var binding: MainActivityBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMain2Binding.inflate(layoutInflater)
+        binding = MainActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 

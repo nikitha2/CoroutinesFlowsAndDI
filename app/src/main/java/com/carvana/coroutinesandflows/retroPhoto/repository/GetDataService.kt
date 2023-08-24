@@ -8,5 +8,4 @@ interface GetDataService {
 
     @GET("/photos")
     suspend fun getAllPhotos(): List<RetroPhotoResponseModel>
-
 }

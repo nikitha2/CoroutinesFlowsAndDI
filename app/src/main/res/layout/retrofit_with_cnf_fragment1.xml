@@ -7,13 +7,13 @@
     android:layout_height="match_parent"
     android:layout_marginHorizontal="@dimen/page_margin_24"
     android:layout_marginVertical="@dimen/page_margin_24"
-    tools:context=".activity2.ui.MainActivity2">
+    tools:context=".retrofitWithCoroutinesAndFlows.ui.RetrofitWithCnFActivity">
 
     <TextView
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:text="@string/main2Fragment_label"
+        android:text="@string/retrofit_with_cnf_fragment1_label"
         app:layout_constraintVertical_weight="1"
         app:layout_constraintBottom_toTopOf="@id/nextBtn"
         app:layout_constraintEnd_toEndOf="parent"

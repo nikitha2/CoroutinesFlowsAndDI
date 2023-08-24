@@ -10,7 +10,7 @@
         android:id="@+id/RetroPhotoFragment"
         android:name="com.carvana.coroutinesandflows.retroPhoto.ui.RetroPhotoFragment"
         android:label="@string/retroPhotoFragment_label"
-        tools:layout="@layout/fragment_retro_photo" >
+        tools:layout="@layout/retro_photo_fragment" >
 
         <action
             android:id="@+id/action_clickNextBtn"
@@ -21,20 +21,20 @@
         android:id="@+id/RetroPhotoFragment2"
         android:name="com.carvana.coroutinesandflows.retroPhoto.ui.RetroPhotoFragment2"
         android:label="@string/retroPhotoFragment2_label"
-        tools:layout="@layout/fragment_retro_photo2">
+        tools:layout="@layout/retro_photo2_fragment">
         <action
             android:id="@+id/action_clickBackBtn"
             app:destination="@id/RetroPhotoFragment" />
 
         <action
             android:id="@+id/action_nextActivityBtn"
-            app:destination="@id/action_mainActivity2" />
+            app:destination="@id/action_retrofitWithCnFActivity" />
     </fragment>
 
     <activity
-        android:id="@+id/action_mainActivity2"
-        android:name="com.carvana.coroutinesandflows.activity2.ui.MainActivity2"
-        android:label="@string/main2_activity"
+        android:id="@+id/action_retrofitWithCnFActivity"
+        android:name="com.carvana.coroutinesandflows.retrofitWithCoroutinesAndFlows.ui.RetrofitWithCnFActivity"
+        android:label="@string/retrofit_with_cnf_activity"
         app:action="android.intent.action.VIEW"
         app:data="https://example.com"
         app:targetPackage="${applicationId}" />

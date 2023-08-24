@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FirstFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.carvana.coroutinesandflows.main.FirstFragment"
+        android:label="@string/mainFragment_label"
+        tools:layout="@layout/main_fragment">
+
+        <action
+            android:id="@+id/action_retroPhotoActivity"
+            app:destination="@id/action_retroPhotoActivity" />
+
+        <action
+            android:id="@+id/action_retrofitWithCnFActivity"
+            app:destination="@id/action_retrofitWithCnFActivity" />
+    </fragment>
+
+    <activity
+        android:id="@+id/action_retroPhotoActivity"
+        android:name="com.carvana.coroutinesandflows.retroPhoto.ui.RetroPhotoActivity"
+        android:label="@string/retro_photo_activity"
+        app:action="android.intent.action.VIEW"
+        app:data="https://example.com"
+        app:targetPackage="${applicationId}" />
+
+    <activity
+        android:id="@+id/action_retrofitWithCnFActivity"
+        android:name="com.carvana.coroutinesandflows.retrofitWithCoroutinesAndFlows.ui.RetrofitWithCnFActivity"
+        android:label="@string/retrofit_with_cnf_activity"
+        app:action="android.intent.action.VIEW"
+        app:data="https://example.com"
+        app:targetPackage="${applicationId}" />
+</navigation>
