@@ -1,8 +1,6 @@
 package com.carvana.coroutinesandflows.data
 
 import com.carvana.coroutinesandflows.R
-import com.carvana.coroutinesandflows.retroPhoto.ui.RetroPhotoActivity
-import com.carvana.coroutinesandflows.retrofitWithCoroutinesAndFlows.ui.RetrofitWithCnFActivity
 
 object Data {
 
