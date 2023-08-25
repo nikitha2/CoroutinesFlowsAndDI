@@ -21,7 +21,7 @@ import kotlinx.coroutines.launch
 class RetrofitWithCnFFragment1 : Fragment() {
     private val TAG = this::class.java.simpleName
     private lateinit var binding: RetrofitWithCnfFragment1Binding
-    private val retrofitWithCnFViewModel: RetrofitWithCnFViewModel by viewModels { RetrofitWithCnFViewModel.Factory}
+    private val retrofitWithCnFViewModel: RetrofitWithCnFViewModel by viewModels() //{ RetrofitWithCnFViewModel.Factory}
 
 
     override fun onCreateView(

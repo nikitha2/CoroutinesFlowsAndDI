@@ -41,13 +41,13 @@ class RetrofitWithCnFViewModel(private val booksRepository: BooksRepository) : V
     }
 
     companion object {
-        val Factory: ViewModelProvider.Factory = viewModelFactory {
-            initializer {
-                val myRepository = BooksRepository()
-                RetrofitWithCnFViewModel(
-                    booksRepository = myRepository,
-                )
-            }
-        }
+//        val Factory: ViewModelProvider.Factory = viewModelFactory {
+//            initializer {
+//                val myRepository = BooksRepository()
+//                RetrofitWithCnFViewModel(
+//                    booksRepository = myRepository,
+//                )
+//            }
+//        }
     }
 }

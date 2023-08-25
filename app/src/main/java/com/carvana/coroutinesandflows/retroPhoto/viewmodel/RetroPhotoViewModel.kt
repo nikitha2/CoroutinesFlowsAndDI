@@ -9,17 +9,16 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import com.carvana.coroutinesandflows.RetrofitClientInstance
 import com.carvana.coroutinesandflows.core.ResourceHolderStates
 import com.carvana.coroutinesandflows.core.ResourceHolderStates.*
+import com.carvana.coroutinesandflows.retroPhoto.models.RetroPhotoResponseModel
 import com.carvana.coroutinesandflows.retroPhoto.repository.RetroPhotoDataSource
 import com.carvana.coroutinesandflows.retroPhoto.repository.RetroPhotoRepository
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
 class RetroPhotoViewModel(private val retroPhotoRepository: RetroPhotoRepository) : ViewModel() {
 
-    private val _retroPhotoResponseModel = MutableStateFlow<ResourceHolderStates>(Loading())
-    var retroPhotoResponseModel: StateFlow<ResourceHolderStates> = _retroPhotoResponseModel
+    private val _retroPhotoResponseModel1 = MutableSharedFlow<List<RetroPhotoResponseModel>>()
+    var retroPhotoResponseModel1: SharedFlow<List<RetroPhotoResponseModel>> = _retroPhotoResponseModel1
 
     suspend fun getAllPhotos() {
         //Cancels the scope automatically for you in the ViewModel's onCleared() method
@@ -29,21 +28,21 @@ class RetroPhotoViewModel(private val retroPhotoRepository: RetroPhotoRepository
                 .catch { exception -> notifyError(exception) }
                 .collect { latestPhotos ->
                     // Update View with the latestPhotos
-                    _retroPhotoResponseModel.value = Success(latestPhotos)
+                    Log.d("RetroPhotoViewModel", "Received new photos: $latestPhotos")
+                    _retroPhotoResponseModel1.emit(latestPhotos)
                 }
         }
     }
 
-    private fun notifyError(exception: Throwable) {
+    private suspend fun notifyError(exception: Throwable) {
         Log.d("RetroPhotoViewModel",exception.message.toString())
-        _retroPhotoResponseModel.value = Failed(exception)
+        _retroPhotoResponseModel1.emit(emptyList())
     }
 
 
     override fun onCleared() {
         super.onCleared()
         Log.d("RetroPhotoViewModel", "--------onCleared called-----------")
-        //viewModelScope canceled here
     }
 
     companion object {

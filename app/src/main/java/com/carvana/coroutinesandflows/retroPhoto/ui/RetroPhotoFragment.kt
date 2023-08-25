@@ -40,56 +40,34 @@ class RetroPhotoFragment : Fragment() {
     }
 
     private fun RetroPhotoFragmentBinding.setupObservers() {
-        /**Should not collect data like this.
-         * This will collect data even after UI is in background/not displayed
-         *
-        lifecycleScope.launch {
-            retroPhotoViewModel.retroPhotoResponseModel.collect {
-                if(it.isNotEmpty())
-                    text.text = it.random().toString()
-            }
-        }
-        */
 
         viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED){
-                launch {
-                    retroPhotoViewModel.retroPhotoResponseModel.collect { uiState->
-                        when (uiState) {
-                            is Success -> {
-                                text.text = uiState.value.random().toString()
-                                hideProgressBar()
-                            }
-                            is Failed -> { text.text = uiState.exception.message.toString() }
-                            is Loading -> { showProgressBar() }
-                            is Always -> { hideProgressBar() }
-                        }
-                    }
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                retroPhotoViewModel.retroPhotoResponseModel1.collect { uiState ->
+                    Log.d("UIStateCollector", "New UI state received: $uiState")
+                    text.text = uiState.random().toString()
+                    hideProgressBar()
                 }
             }
         }
-
-        /** Another way to collect data if only one flow*/
-        /** lifecycleScope.launch {
-                retroPhotoViewModel.retroPhotoResponseModel
-                    .flowWithLifecycle(lifecycle, Lifecycle.State.STARTED)
-                    .collect(){
-                    if(it.isNotEmpty())
-                        text.text = it.random().toString()
-                }
-            }
-        */
     }
 
-    fun RetroPhotoFragmentBinding.hideProgressBar(){
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+        Log.d("onViewStateRestored", "onViewStateRestored called")
+    }
+
+    fun RetroPhotoFragmentBinding.hideProgressBar() {
         progressBar.visibility = INVISIBLE
     }
-    fun RetroPhotoFragmentBinding.showProgressBar(){
+
+    fun RetroPhotoFragmentBinding.showProgressBar() {
         progressBar.visibility = VISIBLE
     }
 
     private fun setUp() {
-        val navHostFragment = activity?.supportFragmentManager?.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navHostFragment =
+            activity?.supportFragmentManager?.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
         binding.apply {
@@ -97,7 +75,7 @@ class RetroPhotoFragment : Fragment() {
                 retroPhotoViewModel.getAllPhotos()
             }
 
-            nextBtn.setOnClickListener{
+            nextBtn.setOnClickListener {
                 navController.navigate(R.id.action_clickNextBtn)
             }
         }
