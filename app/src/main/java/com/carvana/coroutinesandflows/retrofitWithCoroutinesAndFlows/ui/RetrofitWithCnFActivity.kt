@@ -3,7 +3,9 @@ package com.carvana.coroutinesandflows.retrofitWithCoroutinesAndFlows.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.ComponentActivity
 import com.carvana.coroutinesandflows.databinding.RetrofitWithCnfActivityBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  *
@@ -11,7 +13,9 @@ import com.carvana.coroutinesandflows.databinding.RetrofitWithCnfActivityBinding
  * https://medium.com/android-tech-stack/retrofit-with-coroutine-flows-using-mvvm-f0eb397bfc0a
  *
  */
-class RetrofitWithCnFActivity : AppCompatActivity() {
+
+@AndroidEntryPoint
+class RetrofitWithCnFActivity : ComponentActivity() {
     private lateinit var binding: RetrofitWithCnfActivityBinding
     private val TAG = this::class.java.simpleName
 

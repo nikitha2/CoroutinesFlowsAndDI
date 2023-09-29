@@ -2,10 +2,11 @@ package com.carvana.coroutinesandflows.main
 
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
 import com.carvana.coroutinesandflows.databinding.MainActivityBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : ComponentActivity() {
     private val TAG = this::class.java.simpleName
     private lateinit var binding: MainActivityBinding
 

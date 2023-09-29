@@ -4,7 +4,6 @@ import com.carvana.coroutinesandflows.retrofitWithCoroutinesAndFlows.models.Book
 import retrofit2.http.GET
 
 interface BooksService {
-
     @GET("/books/currently-reading")
     suspend fun fetchCurrentlyReadingBooks(): List<BooksResponseModel>
 }

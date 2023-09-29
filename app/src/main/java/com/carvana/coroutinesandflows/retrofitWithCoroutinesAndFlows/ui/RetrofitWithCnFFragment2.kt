@@ -9,7 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import com.carvana.coroutinesandflows.R
 import com.carvana.coroutinesandflows.databinding.RetrofitWithCnfFragment2Binding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RetrofitWithCnFFragment2 : Fragment() {
     private val TAG = this::class.java.simpleName
     private lateinit var binding: RetrofitWithCnfFragment2Binding

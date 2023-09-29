@@ -14,15 +14,16 @@ import androidx.navigation.fragment.NavHostFragment
 import com.carvana.coroutinesandflows.R
 import com.carvana.coroutinesandflows.core.ResourceHolderStates
 import com.carvana.coroutinesandflows.databinding.RetrofitWithCnfFragment1Binding
-import com.carvana.coroutinesandflows.retroPhoto.viewmodel.RetroPhotoViewModel
 import com.carvana.coroutinesandflows.retrofitWithCoroutinesAndFlows.viewmodel.RetrofitWithCnFViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class RetrofitWithCnFFragment1 : Fragment() {
     private val TAG = this::class.java.simpleName
     private lateinit var binding: RetrofitWithCnfFragment1Binding
-    private val retrofitWithCnFViewModel: RetrofitWithCnFViewModel by viewModels { RetrofitWithCnFViewModel.Factory}
-
+    @Inject lateinit var retrofitWithCnFViewModel: RetrofitWithCnFViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
