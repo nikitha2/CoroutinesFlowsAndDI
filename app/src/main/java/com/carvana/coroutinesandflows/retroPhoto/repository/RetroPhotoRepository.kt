@@ -12,12 +12,10 @@ class RetroPhotoRepository(private val newsRemoteDataSource: RetroPhotoDataSourc
     // filters all nonNull photos and returns
     suspend fun getAllPhotos(): Flow<List<RetroPhotoResponseModel>> =
         newsRemoteDataSource.latestPhotos
-            .map {
-                    photo -> photo.filter { checkNotNull(true) }
+            .map { photo ->
+                photo.filter { it != null }
             }
-            // catch can also emit items to the flow. The example repository layer could emit the cached values instead.
-            // If an error happens, emit an empty list
-            .catch {
-                    exception -> emit(listOf(RetroPhotoResponseModel(title = exception.message.toString())))
+            .catch { exception ->
+                emit(listOf(RetroPhotoResponseModel(title = exception.message.toString())))
             }
 }
