@@ -11,9 +11,9 @@ import retrofit2.Retrofit
 @InstallIn(ActivityComponent::class)
 object DiAppProviderModule {
 
-    @Provides
-    fun provideBooksService(retrofit: Retrofit): BooksService {
-        return retrofit.create(BooksService::class.java)
-    }
+//    @Provides
+//    fun provideBooksService(retrofit: Retrofit): BooksService {
+//        return retrofit.create(BooksService::class.java)
+//    }
 
 }

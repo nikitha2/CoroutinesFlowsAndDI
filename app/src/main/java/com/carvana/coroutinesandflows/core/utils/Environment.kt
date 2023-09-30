@@ -8,6 +8,6 @@ interface Environment {
 }
 
 class EnvironmentImpl @Inject constructor(): Environment {
-    override val baseUrl: String = "https://openlibrary.org/people/mekBot"
+    override val baseUrl: String = "https://openlibrary.org/people/mekBot/"
     override val buildVersion: String = ""
 }

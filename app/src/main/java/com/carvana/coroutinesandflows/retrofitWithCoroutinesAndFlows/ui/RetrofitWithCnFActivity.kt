@@ -15,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
  */
 
 @AndroidEntryPoint
-class RetrofitWithCnFActivity : ComponentActivity() {
+class RetrofitWithCnFActivity : AppCompatActivity() {
     private lateinit var binding: RetrofitWithCnfActivityBinding
     private val TAG = this::class.java.simpleName
 

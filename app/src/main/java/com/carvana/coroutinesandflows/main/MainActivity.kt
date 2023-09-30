@@ -6,7 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
 import com.carvana.coroutinesandflows.databinding.MainActivityBinding
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
     private val TAG = this::class.java.simpleName
     private lateinit var binding: MainActivityBinding
 
