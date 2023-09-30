@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 
 
-class RetroPhotoRepository(private val newsRemoteDataSource: RetroPhotoDataSource,) {
+class RetroPhotoRepository(private val newsRemoteDataSource: RetroPhotoDataSource) {
 
     // Intermediaries can use intermediate operators to modify the stream of data without consuming the values.
     // filters all nonNull photos and returns
