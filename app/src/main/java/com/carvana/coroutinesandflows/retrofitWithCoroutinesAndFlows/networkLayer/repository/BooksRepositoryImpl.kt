@@ -1,9 +1,7 @@
 package com.carvana.coroutinesandflows.retrofitWithCoroutinesAndFlows.networkLayer.repository
 
-import com.carvana.coroutinesandflows.core.di.DiSingletonBindingModule
 import com.carvana.coroutinesandflows.retrofitWithCoroutinesAndFlows.models.BooksResponseModel
 import com.carvana.coroutinesandflows.retrofitWithCoroutinesAndFlows.networkLayer.BooksService
-import dagger.hilt.InstallIn
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
