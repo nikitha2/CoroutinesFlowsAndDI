@@ -7,12 +7,16 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
 import dagger.hilt.android.components.ActivityRetainedComponent
+import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.scopes.ActivityRetainedScoped
+import dagger.hilt.android.scopes.ViewModelScoped
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 @Module
-@InstallIn(ActivityRetainedComponent::class)
+@InstallIn(ViewModelComponent::class)
+//@InstallIn(ActivityRetainedComponent::class) // To scope to activity
+
 abstract class DiAppBindingModule {
 
 
@@ -21,7 +25,8 @@ abstract class DiAppBindingModule {
      * I want my repository to be scoped to activity. So using @ActivityRetainedScoped
      * */
     @Binds
-    @ActivityRetainedScoped
+    @ViewModelScoped //Scoping to viewmodel so that instance is saved across configuration changes
+//  @ActivityRetainedScoped // To scope to activity
     abstract fun bindBooksRepository(
         booksRepositoryImpl: BooksRepositoryImpl
     ): BooksRepository

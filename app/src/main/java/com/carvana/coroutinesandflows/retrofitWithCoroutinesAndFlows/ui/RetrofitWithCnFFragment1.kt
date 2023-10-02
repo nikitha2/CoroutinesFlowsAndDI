@@ -15,6 +15,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.carvana.coroutinesandflows.R
 import com.carvana.coroutinesandflows.core.ResourceHolderStates
 import com.carvana.coroutinesandflows.databinding.RetrofitWithCnfFragment1Binding
+import com.carvana.coroutinesandflows.retrofitWithCoroutinesAndFlows.models.BooksResponseModel
 import com.carvana.coroutinesandflows.retrofitWithCoroutinesAndFlows.viewmodel.RetrofitWithCnFViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -43,21 +44,30 @@ class RetrofitWithCnFFragment1 : Fragment() {
 
     private fun RetrofitWithCnfFragment1Binding.setupObservers() {
         viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED){
-                retrofitWithCnFViewModel.booksResponseModel.collect{uiState->
-                    when(uiState){
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                retrofitWithCnFViewModel.booksResponseModel.collect { uiState ->
+                    when (uiState) {
                         is ResourceHolderStates.Success -> {
-                            text.text = uiState.value.random().toString()
+                            val value = uiState.value as BooksResponseModel
+                            text.text = value.reading_log_entries?.random().toString()
                             hideProgressBar()
                         }
-                        is ResourceHolderStates.Failed -> { text.text = uiState.exception.message.toString() }
-                        is ResourceHolderStates.Loading -> { showProgressBar() }
-                        is ResourceHolderStates.Always -> { hideProgressBar() }
+
+                        is ResourceHolderStates.Failed -> {
+                            text.text = uiState.exception.message.toString()
+                        }
+
+                        is ResourceHolderStates.Loading -> {
+                            showProgressBar()
+                        }
+
+                        is ResourceHolderStates.Always -> {
+                            hideProgressBar()
+                        }
                     }
                 }
             }
         }
-
     }
 
     private fun setUp() {
@@ -88,10 +98,11 @@ class RetrofitWithCnFFragment1 : Fragment() {
         Log.d(TAG, "onDestroyView called")
     }
 
-    private fun RetrofitWithCnfFragment1Binding.hideProgressBar(){
+    private fun RetrofitWithCnfFragment1Binding.hideProgressBar() {
         progressBar.visibility = View.INVISIBLE
     }
-    private fun RetrofitWithCnfFragment1Binding.showProgressBar(){
+
+    private fun RetrofitWithCnfFragment1Binding.showProgressBar() {
         progressBar.visibility = View.VISIBLE
     }
 
