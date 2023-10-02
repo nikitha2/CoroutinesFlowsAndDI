@@ -11,6 +11,13 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ *
+ * Can use @HiltViewModel to inject dependencies into ViewModels. Under the hood,
+ * these bindings are kept in the ActivityRetainedComponent, which is why you can only inject types
+ * that are either unscoped, or scoped to ActivityRetainedComponent or ApplicationComponent.
+ * [booksRepository] is scoped to ActivityRetainedComponent.
+ * */
 @HiltViewModel
 class RetrofitWithCnFViewModel @Inject constructor(
     private val booksRepository: BooksRepository
@@ -34,10 +41,10 @@ class RetrofitWithCnFViewModel @Inject constructor(
     }
 
     private fun notifyError(
-        _responseModel: MutableStateFlow<ResourceHolderStates>,
+        responseModel: MutableStateFlow<ResourceHolderStates>,
         exception: Throwable
     ) {
-        _responseModel.value = ResourceHolderStates.Failed(exception)
+        responseModel.value = ResourceHolderStates.Failed(exception)
     }
 
 }

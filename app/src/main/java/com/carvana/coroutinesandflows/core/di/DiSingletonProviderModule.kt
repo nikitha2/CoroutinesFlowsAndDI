@@ -24,8 +24,4 @@ class DiSingletonProviderModule {
             .build()
     }
 
-    @Provides
-    fun provideBooksService(retrofit: Retrofit): BooksService {
-        return retrofit.create(BooksService::class.java)
-    }
 }

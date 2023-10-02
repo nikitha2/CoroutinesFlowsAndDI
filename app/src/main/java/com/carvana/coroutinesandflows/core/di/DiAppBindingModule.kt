@@ -6,15 +6,22 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.android.components.ActivityRetainedComponent
+import dagger.hilt.android.scopes.ActivityRetainedScoped
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 @Module
-@InstallIn(SingletonComponent::class)
+@InstallIn(ActivityRetainedComponent::class)
 abstract class DiAppBindingModule {
 
+
+    /** As BooksRepository is injected in viewmodel. It can be inject be
+     * scope: unscoped, or scoped to ActivityRetainedComponent or ApplicationComponent.
+     * I want my repository to be scoped to activity. So using @ActivityRetainedScoped
+     * */
     @Binds
-    @Singleton
+    @ActivityRetainedScoped
     abstract fun bindBooksRepository(
         booksRepositoryImpl: BooksRepositoryImpl
     ): BooksRepository
