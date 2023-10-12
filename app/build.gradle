@@ -1,9 +1,9 @@
 plugins {
-    id 'com.google.dagger.hilt.android'
-    id 'com.android.application'
+    id("com.google.dagger.hilt.android")
+    id("com.android.application")
     //Hilt
-    id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
+    id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 //Hilt
