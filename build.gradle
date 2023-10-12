@@ -7,5 +7,5 @@ plugins {
 }
 
 ext {
-    nav_version = "2.7.3"
+    nav_version = "2.7.4"
 }
